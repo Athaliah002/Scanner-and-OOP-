@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+// Entry point class
+public class Computing {
+    public static void main(String[] args) {
+        // Create an instance of the Calculator class
+        Calculator calculator = new Calculator();
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter any number, or 0 to stop");
+
+        while (true) {
+            int number = input.nextInt(); // Read a number from the user
+            if (number == 0) { // Check for sentinel value
+                break;
+            }
+            calculator.addNumber(number); // Add the number to the sum
+        }
+
+        // Display the sum of numbers
+        calculator.displayResult();
+    }
+}
+
+// Class that handles the calculation logic
+class Calculator {
+    // Private attribute for sum
+    private int sum;
+
+    // Constructor initializes sum to 0
+    public Calculator() {
+        this.sum = 0;
+    }
+
+    // Method to add a number to the sum
+    public void addNumber(int number) {
+        sum += number;
+    }
+
+    // Method to display the result
+    public void displayResult() {
+        System.out.println("The sum of the numbers entered is: " + sum);
+    }
+}
